@@ -36,4 +36,12 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="326dp"
+        android:layout_height="229dp"
+        app:srcCompat="@drawable/disc_golf_tracker_logo"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="52dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
