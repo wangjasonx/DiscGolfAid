@@ -40,8 +40,11 @@
         android:id="@+id/imageView"
         android:layout_width="326dp"
         android:layout_height="229dp"
-        app:srcCompat="@drawable/disc_golf_tracker_logo"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="52dp" />
+        android:contentDescription="Logo"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/disc_golf_tracker_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
