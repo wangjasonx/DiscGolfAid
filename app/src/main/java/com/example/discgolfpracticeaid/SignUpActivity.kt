@@ -35,14 +35,8 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.signUp.setOnClickListener {
-            val Username = binding.Username.text.toString().trim()
             val Password = binding.Password.text.toString().trim()
             val Email = binding.Email.text.toString().trim()
-
-            if (Username.isEmpty()) {
-                binding.Username.error = "Username cannot be empty"
-                return@setOnClickListener
-            }
 
             if (Password.isEmpty()) {
                 binding.Password.error = "Password cannot be empty"
@@ -54,7 +48,7 @@ class SignUpActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val newUser = UserModel(Username, Password, Email)
+            val newUser = UserModel(Email, Password)
 
             auth.createUserWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this) { task ->
