@@ -3,8 +3,9 @@ package com.example.discgolfpracticeaid
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.discgolfpracticeaid.databinding.LogInActivityBinding
 import com.example.discgolfpracticeaid.databinding.SignUpActivityBinding
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 private lateinit var binding: SignUpActivityBinding
 
