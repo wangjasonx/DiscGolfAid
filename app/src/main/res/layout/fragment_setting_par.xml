@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingParFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/Hole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hole #"
+            tools:layout_editor_absoluteX="53dp"
+            tools:layout_editor_absoluteY="102dp" />
+
+        <TextView
+            android:id="@+id/Num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            app:layout_constraintStart_toEndOf="@+id/Hole"
+            tools:layout_editor_absoluteY="34dp" />
+
+        <Button
+            android:id="@+id/downButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="<"
+            app:layout_constraintStart_toEndOf="@+id/Num"
+            tools:layout_editor_absoluteY="159dp" />
+
+        <TextView
+            android:id="@+id/Par"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            app:layout_constraintStart_toEndOf="@+id/downButton"
+            tools:layout_editor_absoluteY="83dp" />
+
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=">"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Par"
+            tools:layout_editor_absoluteY="16dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
