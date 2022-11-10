@@ -16,9 +16,13 @@ class LogInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.registerAnAccountLink.setOnClickListener {
-            val SignUpActivity = Intent(this, SignUpActivity::class.java)
-            startActivity(SignUpActivity)
-            finish()
+            goToSignUp()
         }
+    }
+
+    fun goToSignUp() {
+        val SignUpActivity = Intent(this, SignUpActivity::class.java)
+        startActivity(SignUpActivity)
+        finish()
     }
 }
