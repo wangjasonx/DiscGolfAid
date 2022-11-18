@@ -89,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.382"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signIn" />
+            app:layout_constraintTop_toBottomOf="@+id/signUp" />
 
         <TextView
             android:id="@+id/haveAnAccountLink"
@@ -101,7 +101,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.126"
             app:layout_constraintStart_toEndOf="@+id/haveAnAccountText"
-            app:layout_constraintTop_toBottomOf="@+id/signIn" />
+            app:layout_constraintTop_toBottomOf="@+id/signUp" />
 
         <EditText
             android:id="@+id/Email"
@@ -112,7 +112,7 @@
             android:ems="10"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/signIn"
+            app:layout_constraintBottom_toTopOf="@+id/signUp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
