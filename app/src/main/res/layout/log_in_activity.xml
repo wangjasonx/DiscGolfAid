@@ -55,7 +55,7 @@
             app:srcCompat="@drawable/disc_golf_tracker_logo" />
 
         <Button
-            android:id="@+id/newGame"
+            android:id="@+id/Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -88,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.382"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newGame" />
+            app:layout_constraintTop_toBottomOf="@+id/Login" />
 
         <TextView
             android:id="@+id/registerAnAccountLink"
@@ -100,7 +100,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.135"
             app:layout_constraintStart_toEndOf="@+id/registerAnAccountText"
-            app:layout_constraintTop_toBottomOf="@+id/newGame" />
+            app:layout_constraintTop_toBottomOf="@+id/Login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

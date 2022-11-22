@@ -9,6 +9,23 @@
         tools:context=".SignUpActivity">
 
         <EditText
+            android:id="@+id/Username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="30dp"
+            android:backgroundTint="#673AB7"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/Email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
             android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +90,7 @@
             android:text="SIGN UP"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/Email"
+            app:layout_constraintBottom_toTopOf="@+id/Username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
