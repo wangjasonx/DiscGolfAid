@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/appLogo"
             android:layout_width="326dp"
             android:layout_height="229dp"
             android:contentDescription="Logo"
@@ -77,7 +77,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/appLogo" />
 
         <TextView
             android:id="@+id/registerAnAccountText"

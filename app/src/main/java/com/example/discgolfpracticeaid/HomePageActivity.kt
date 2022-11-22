@@ -22,10 +22,14 @@ class HomePageActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
+        // If no one is signed in then return to login page
+        if (auth.currentUser == null) {
+            goToLogin()
+        }
+
         binding.newGame.setOnClickListener {
             val NewGameActivity = Intent(this, NewGameActivity::class.java)
             startActivity(NewGameActivity)
-            finish()
         }
 
         binding.signOut.setOnClickListener {
