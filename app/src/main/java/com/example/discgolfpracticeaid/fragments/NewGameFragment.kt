@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.discgolfpracticeaid.R
 import com.example.discgolfpracticeaid.databinding.FragmentNewGameBinding
 
@@ -24,13 +25,15 @@ class NewGameFragment : Fragment() {
         binding = FragmentNewGameBinding.inflate(inflater, container, false)
 
         binding.setParsButton.setOnClickListener {
-            val setParFragment = SettingParFragment()
-            parentFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, setParFragment, "setParFragment")
-
+            goToSetParsScreen()
         }
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    fun goToSetParsScreen() {
+        findNavController().navigate(R.id.action_newGameFragment_to_settingParFragment)
     }
 
     companion object {
