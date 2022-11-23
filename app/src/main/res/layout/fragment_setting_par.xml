@@ -18,26 +18,10 @@
             android:text="Set Pars"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/courseName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/courseName"
-            android:layout_width="235dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="textPersonName"
-            android:text="Course Name"
-            android:textAlignment="center"
-            android:typeface="monospace"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/setParsTitle" />
 
         <Button
             android:id="@+id/startGameButton"
@@ -46,42 +30,23 @@
             android:layout_margin="15dp"
             android:text="Start Game"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/listView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/numberOfHoles"
             app:layout_constraintVertical_bias="0.239" />
 
-        <EditText
-            android:id="@+id/Date"
-            android:layout_width="235dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="date"
-            android:text="Date"
-            android:textAlignment="center"
-            android:typeface="monospace"
-            app:layout_constraintBottom_toTopOf="@+id/numberOfHoles"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_constraintBottom_toTopOf="@+id/startGameButton"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/courseName" />
+            app:layout_constraintTop_toBottomOf="@+id/setParsTitle"
+            app:layout_constraintVertical_bias="0.351" />
 
-        <EditText
-            android:id="@+id/numberOfHoles"
-            android:layout_width="235dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="number"
-            android:text="# of Holes"
-            android:textAlignment="center"
-            android:typeface="monospace"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
