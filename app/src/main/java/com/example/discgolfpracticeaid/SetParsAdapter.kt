@@ -10,6 +10,22 @@ class SetParsAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Ada
     inner class ViewHolder(val binding: SetParsItemDesignBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(holeNumber: String) {
             binding.holeNumber.text = holeNumber
+
+            binding.downArrow.setOnClickListener {
+                var shots = binding.Shots.text.toString().toInt()
+
+                if (shots > 0) {
+                    shots--
+                    binding.Shots.text = shots.toString()
+                }
+            }
+
+            binding.upArrow.setOnClickListener {
+                var shots = binding.Shots.text.toString().toInt()
+                shots++
+
+                binding.Shots.text = shots.toString()
+            }
         }
     }
 

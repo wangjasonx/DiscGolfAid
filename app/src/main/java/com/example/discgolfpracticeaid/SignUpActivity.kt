@@ -10,11 +10,10 @@ import com.example.discgolfpracticeaid.datamodels.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-private lateinit var binding: SignUpActivityBinding
-private lateinit var auth: FirebaseAuth
-private lateinit var db: FirebaseFirestore
-
 class SignUpActivity : AppCompatActivity() {
+    private lateinit var binding: SignUpActivityBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

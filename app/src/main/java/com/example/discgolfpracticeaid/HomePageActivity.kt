@@ -7,11 +7,11 @@ import com.example.discgolfpracticeaid.databinding.ActivityHomePageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-private lateinit var binding: ActivityHomePageBinding
-private lateinit var auth: FirebaseAuth
-private lateinit var db: FirebaseFirestore
-
 class HomePageActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomePageBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)

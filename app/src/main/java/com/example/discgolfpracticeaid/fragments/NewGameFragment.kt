@@ -11,16 +11,9 @@ import com.example.discgolfpracticeaid.databinding.FragmentNewGameBinding
 import com.example.discgolfpracticeaid.viewmodels.NewGameViewModel
 import androidx.fragment.app.activityViewModels
 
-
-private lateinit var binding: FragmentNewGameBinding
-
 class NewGameFragment : Fragment() {
-
+    private lateinit var binding: FragmentNewGameBinding
     private val sharedViewModel: NewGameViewModel by activityViewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

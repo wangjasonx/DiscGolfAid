@@ -9,11 +9,11 @@ import com.example.discgolfpracticeaid.databinding.LogInActivityBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-private lateinit var binding: LogInActivityBinding
-private lateinit var auth: FirebaseAuth
-private lateinit var db: FirebaseFirestore
-
 class LogInActivity : AppCompatActivity() {
+    private lateinit var binding: LogInActivityBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_activity)
