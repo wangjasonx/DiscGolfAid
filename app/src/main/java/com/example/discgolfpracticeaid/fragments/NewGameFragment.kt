@@ -1,5 +1,6 @@
 package com.example.discgolfpracticeaid.fragments
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import com.example.discgolfpracticeaid.R
 import com.example.discgolfpracticeaid.databinding.FragmentNewGameBinding
 import com.example.discgolfpracticeaid.viewmodels.NewGameViewModel
 import androidx.fragment.app.activityViewModels
+import java.util.*
 
 class NewGameFragment : Fragment() {
     private lateinit var binding: FragmentNewGameBinding
@@ -21,6 +23,27 @@ class NewGameFragment : Fragment() {
     ): View? {
 
         binding = FragmentNewGameBinding.inflate(inflater, container, false)
+
+        binding.Date.setOnClickListener{
+            val c = Calendar.getInstance()
+
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            val datePickerDialog = DatePickerDialog(
+                inflater.context,
+                { view, year, monthOfYear, dayOfMonth ->
+                    val dat = ((monthOfYear + 1).toString() + "-" + dayOfMonth.toString() + "-" + year)
+                    binding.Date.setText(dat)
+                },
+                year,
+                month,
+                day
+            )
+
+            datePickerDialog.show()
+        }
 
         binding.setParsButton.setOnClickListener {
             val courseName = binding.courseName.text.toString().trim()

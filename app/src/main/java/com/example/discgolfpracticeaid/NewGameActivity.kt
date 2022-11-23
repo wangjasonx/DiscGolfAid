@@ -37,7 +37,7 @@ class NewGameActivity : AppCompatActivity() {
             db.collection(USER_COLLECTION)
                 .document(user.toString())
                 .collection(GAMES_MAP)
-                .document(newGameMapName)
+                .document()
                 .set(newGameMap)
                 .addOnSuccessListener {
                     Toast.makeText(this@NewGameActivity, "Successfully logged game!", Toast.LENGTH_SHORT).show()
