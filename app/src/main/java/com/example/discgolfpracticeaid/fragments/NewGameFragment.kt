@@ -44,7 +44,6 @@ class NewGameFragment : Fragment() {
 
             val holesNumber = numberOfHoles.toInt()
 
-            sharedViewModel.setNewGameMap(courseName, Date)
             sharedViewModel.setNumberOfHoles(holesNumber)
             sharedViewModel.setCourseName(courseName)
             sharedViewModel.setDate(Date)

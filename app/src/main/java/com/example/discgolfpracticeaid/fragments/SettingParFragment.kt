@@ -26,6 +26,11 @@ class SettingParFragment : Fragment() {
         binding = FragmentSettingParBinding.inflate(inflater, container, false)
 
         binding.startGameButton.setOnClickListener {
+            val parData = adapter.getListData()
+
+            for (item in parData) {
+                sharedViewModel.pars.value?.add(item.shots)
+            }
             goToPlayGameScreen()
         }
 

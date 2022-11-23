@@ -8,8 +8,8 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class NewGameViewModel : ViewModel() {
-    private val _newGameMap = MutableLiveData<HashMap<String, HashMap<String, Any?>>>(HashMap())
-    val newGameMap : LiveData<HashMap<String, HashMap<String, Any?>>> = _newGameMap
+    private val _newGameMap = MutableLiveData<HashMap<String, Any?>>(HashMap())
+    val newGameMap : LiveData<HashMap<String, Any?>> = _newGameMap
 
     private val _numberOfHoles = MutableLiveData<Int>(0)
     val numberOfHoles : LiveData<Int> = _numberOfHoles
@@ -29,32 +29,16 @@ class NewGameViewModel : ViewModel() {
     private val _score = MutableLiveData<Int>(0)
     val score : LiveData<Int> = _score
 
-    fun isParsEmpty(): Boolean? {
-        return _pars.value?.isEmpty()
-    }
-
-    fun getMap() : String {
-        return _newGameMap.value.toString()
-    }
-
-    fun getPars(): String {
-        return _pars.value.toString()
-    }
-
-    fun setNewGameMap(courseName : String, Date: String) {
-        val nameAndDate: String = "$courseName,$Date"
-
-        _newGameMap.value?.set(nameAndDate, HashMap())
-    }
-
     fun buildMap() {
-        val nameAndDate: String = "$_courseName,$_date"
-        _newGameMap.value?.get(nameAndDate)?.put("course_name", _courseName.value)
-        _newGameMap.value?.get(nameAndDate)?.put("date", _date.value)
-        _newGameMap.value?.get(nameAndDate)?.put("holes", _numberOfHoles.value)
-        _newGameMap.value?.get(nameAndDate)?.put("pars", _pars.value)
-        _newGameMap.value?.get(nameAndDate)?.put("shots", _shots.value)
-        _newGameMap.value?.get(nameAndDate)?.put("score", _score.value)
+        val map : HashMap<String, Any?> = HashMap()
+        map.put("course_name", _courseName.value)
+        map.put("date", _date.value)
+        map.put("holes", _numberOfHoles.value)
+        map.put("pars", _pars.value)
+        map.put("shots", _shots.value)
+        map.put("score", _score.value)
+
+        _newGameMap.value = map
     }
 
     fun setNumberOfHoles(holes: Int) {
@@ -67,14 +51,6 @@ class NewGameViewModel : ViewModel() {
 
     fun setDate(date: String) {
         _date.value = date
-    }
-
-    fun setPars(item: Int) {
-        _pars.value?.add(item)
-    }
-
-    fun setShots(item: Int) {
-        _shots.value?.add(item)
     }
 
     fun setScore(score: Int) {

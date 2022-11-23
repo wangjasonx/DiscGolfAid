@@ -9,7 +9,7 @@ import com.example.discgolfpracticeaid.viewmodels.NewGameViewModel
 
 class SetParsAdapter(private val mList: List<ItemsViewModel>, private val gameViewModel: NewGameViewModel) : RecyclerView.Adapter<SetParsAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: SetParsItemDesignBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(holeNumber: String) {
+        fun bind(holeNumber: String, item: ItemsViewModel) {
             binding.holeNumber.text = holeNumber
 
             binding.downArrow.setOnClickListener {
@@ -18,6 +18,7 @@ class SetParsAdapter(private val mList: List<ItemsViewModel>, private val gameVi
                 if (shots > 0) {
                     shots--
                     binding.Shots.text = shots.toString()
+                    item.shots = shots
                 }
             }
 
@@ -26,21 +27,12 @@ class SetParsAdapter(private val mList: List<ItemsViewModel>, private val gameVi
                 shots++
 
                 binding.Shots.text = shots.toString()
-            }
-        }
-
-        fun saveHoleData() {
-            val shots = binding.Shots.text.toString().toInt()
-
-            if (gameViewModel.isParsEmpty() == true) {
-                gameViewModel.setPars(shots)
-            } else {
-                gameViewModel.setShots(shots)
+                item.shots = shots
             }
         }
     }
 
-    fun saveParsData() : List<ItemsViewModel> {
+    fun getListData() : List<ItemsViewModel> {
         return mList
     }
 
@@ -56,7 +48,7 @@ class SetParsAdapter(private val mList: List<ItemsViewModel>, private val gameVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
 
-        holder.bind(ItemsViewModel.text)
+        holder.bind(ItemsViewModel.text, ItemsViewModel)
     }
 
     override fun getItemCount(): Int {

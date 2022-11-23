@@ -1,3 +1,3 @@
 package com.example.discgolfpracticeaid.viewmodels
 
-data class ItemsViewModel(val text: String, val shots: Int)
+data class ItemsViewModel(var text: String, var shots: Int)
