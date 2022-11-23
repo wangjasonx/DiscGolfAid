@@ -29,7 +29,6 @@ class NewGameActivity : AppCompatActivity() {
     fun addData() {
         sharedViewModel.buildMap()
         val newGameMap = sharedViewModel.newGameMap.value
-        val newGameMapName = "${sharedViewModel.courseName.value},${sharedViewModel.date.value}"
 
         val user = auth.currentUser?.uid
 
@@ -54,12 +53,6 @@ class NewGameActivity : AppCompatActivity() {
     fun goToHomePage() {
         val HomePageActivity = Intent(this, HomePageActivity::class.java)
         startActivity(HomePageActivity)
-        finish()
-    }
-
-    fun goToLogin() {
-        val LogInActivity = Intent(this, LogInActivity::class.java)
-        startActivity(LogInActivity)
         finish()
     }
 
