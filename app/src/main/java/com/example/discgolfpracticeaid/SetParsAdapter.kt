@@ -5,8 +5,9 @@ import com.example.discgolfpracticeaid.viewmodels.ItemsViewModel
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.discgolfpracticeaid.databinding.SetParsItemDesignBinding
+import com.example.discgolfpracticeaid.viewmodels.NewGameViewModel
 
-class SetParsAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Adapter<SetParsAdapter.ViewHolder>() {
+class SetParsAdapter(private val mList: List<ItemsViewModel>, private val gameViewModel: NewGameViewModel) : RecyclerView.Adapter<SetParsAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: SetParsItemDesignBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(holeNumber: String) {
             binding.holeNumber.text = holeNumber
@@ -27,6 +28,20 @@ class SetParsAdapter(private val mList: List<ItemsViewModel>) : RecyclerView.Ada
                 binding.Shots.text = shots.toString()
             }
         }
+
+        fun saveHoleData() {
+            val shots = binding.Shots.text.toString().toInt()
+
+            if (gameViewModel.isParsEmpty() == true) {
+                gameViewModel.setPars(shots)
+            } else {
+                gameViewModel.setShots(shots)
+            }
+        }
+    }
+
+    fun saveParsData() : List<ItemsViewModel> {
+        return mList
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -18,5 +18,14 @@
         android:id="@+id/settingParFragment"
         android:name="com.example.discgolfpracticeaid.fragments.SettingParFragment"
         android:label="fragment_setting_par"
-        tools:layout="@layout/fragment_setting_par" />
+        tools:layout="@layout/fragment_setting_par" >
+        <action
+            android:id="@+id/action_settingParFragment_to_playGameFragment"
+            app:destination="@id/playGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playGameFragment"
+        android:name="com.example.discgolfpracticeaid.fragments.PlayGameFragment"
+        android:label="fragment_play_game"
+        tools:layout="@layout/fragment_play_game" />
 </navigation>

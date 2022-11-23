@@ -6,29 +6,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.discgolfpracticeaid.R
 import com.example.discgolfpracticeaid.SetParsAdapter
+import com.example.discgolfpracticeaid.databinding.FragmentPlayGameBinding
 import com.example.discgolfpracticeaid.databinding.FragmentSettingParBinding
 import com.example.discgolfpracticeaid.viewmodels.ItemsViewModel
 import com.example.discgolfpracticeaid.viewmodels.NewGameViewModel
 
-class SettingParFragment : Fragment() {
-    private lateinit var binding: FragmentSettingParBinding
+class PlayGameFragment : Fragment() {
+
+    private lateinit var binding: FragmentPlayGameBinding
     private val sharedViewModel: NewGameViewModel by activityViewModels()
-    private lateinit var adapter: SetParsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSettingParBinding.inflate(inflater, container, false)
 
-        binding.startGameButton.setOnClickListener {
-            goToPlayGameScreen()
-        }
+        binding = FragmentPlayGameBinding.inflate(inflater, container, false)
 
+        val test = sharedViewModel.getPars()
+
+        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -41,14 +41,10 @@ class SettingParFragment : Fragment() {
             data.add(ItemsViewModel("Hole#$i", 3))
         }
 
-        binding.listView.layoutManager = LinearLayoutManager(activity)
-
-        adapter = SetParsAdapter(data, sharedViewModel)
-        binding.listView.adapter = adapter
+        binding.playGameList.layoutManager = LinearLayoutManager(activity)
+        binding.playGameList.adapter = SetParsAdapter(data, sharedViewModel)
     }
 
-    fun goToPlayGameScreen() {
-        findNavController().navigate(R.id.action_settingParFragment_to_playGameFragment)
+    companion object {
     }
-
 }
