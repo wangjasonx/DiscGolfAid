@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SettingParFragment">
+    tools:context=".fragments.PlayGameFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="Set Pars"
+            android:text="Play Game"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,23 +24,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/startGameButton"
+            android:id="@+id/finishPlayingButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Start Game"
+            android:text="Finish Playing"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/listView"
+            app:layout_constraintTop_toBottomOf="@id/playGameList"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.239" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listView"
+            android:id="@+id/playGameList"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            app:layout_constraintBottom_toTopOf="@+id/startGameButton"
+            app:layout_constraintBottom_toTopOf="@+id/finishPlayingButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

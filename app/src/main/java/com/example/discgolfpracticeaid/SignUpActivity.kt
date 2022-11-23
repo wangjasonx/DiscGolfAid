@@ -10,11 +10,10 @@ import com.example.discgolfpracticeaid.datamodels.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-private lateinit var binding: SignUpActivityBinding
-private lateinit var auth: FirebaseAuth
-private lateinit var db: FirebaseFirestore
-
 class SignUpActivity : AppCompatActivity() {
+    private lateinit var binding: SignUpActivityBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +26,7 @@ class SignUpActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
 
         if (auth.currentUser != null) {
-            auth.signOut()
+            goToHomePage()
         }
 
         binding.haveAnAccountLink.setOnClickListener {
@@ -35,20 +34,26 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.signUp.setOnClickListener {
-            val Password = binding.Password.text.toString().trim()
+            val Username = binding.Username.text.toString().trim()
             val Email = binding.Email.text.toString().trim()
+            val Password = binding.Password.text.toString().trim()
 
-            if (Password.isEmpty()) {
-                binding.Password.error = "Password cannot be empty"
+            if (Username.isEmpty()) {
+                binding.Username.error = "Username cannot be empty!"
                 return@setOnClickListener
             }
 
             if (Email.isEmpty()) {
-                binding.Email.error = "Email cannot be empty"
+                binding.Email.error = "Email cannot be empty!"
                 return@setOnClickListener
             }
 
-            val newUser = UserModel(Email, Password)
+            if (Password.isEmpty()) {
+                binding.Password.error = "Password cannot be empty!"
+                return@setOnClickListener
+            }
+
+            val newUser = UserModel(Username, Email, Password)
 
             auth.createUserWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this) { task ->
@@ -56,8 +61,8 @@ class SignUpActivity : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(ACTIVITY_NAME, "createUserWithEmail:success")
                         val user = auth.currentUser?.uid
-
                         createUser(USER_COLLECTION, user.toString(), newUser)
+                        goToHomePage()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(ACTIVITY_NAME, "createUserWithEmail:failure", task.exception)
@@ -73,6 +78,12 @@ class SignUpActivity : AppCompatActivity() {
     fun goToLogin() {
         val LogInActivity = Intent(this, LogInActivity::class.java)
         startActivity(LogInActivity)
+        finish()
+    }
+
+    fun goToHomePage() {
+        val HomePageActivity = Intent(this, HomePageActivity::class.java)
+        startActivity(HomePageActivity)
         finish()
     }
 
