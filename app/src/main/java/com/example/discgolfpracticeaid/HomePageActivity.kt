@@ -36,6 +36,11 @@ class HomePageActivity : AppCompatActivity() {
             auth.signOut()
             goToLogin()
         }
+
+        binding.prevGame.setOnClickListener {
+            val PreviousGamesActivity = Intent(this, PreviousGamesActivity::class.java)
+            startActivity(PreviousGamesActivity)
+        }
     }
 
     fun goToLogin() {
