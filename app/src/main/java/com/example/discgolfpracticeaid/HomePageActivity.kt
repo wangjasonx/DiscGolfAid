@@ -55,7 +55,7 @@ class HomePageActivity : AppCompatActivity() {
         updateGraph()
     }
 
-    fun updateGraph() {
+    private fun updateGraph() {
         val user = auth.currentUser?.uid
         db.collection(USER_COLLECTION).document(user.toString())
             .collection(GAMES_MAP).addSnapshotListener { qs: QuerySnapshot?, error: FirebaseFirestoreException? ->
@@ -65,25 +65,28 @@ class HomePageActivity : AppCompatActivity() {
                 }
                 qs?.let {
                     series = BarGraphSeries<DataPoint>()
-                    var scores: ArrayList<Pair<out Int, out Int>> = ArrayList()
+
+                    val scores: HashMap<Int, Int> = HashMap()
                     for (document in qs.documentChanges) {
                         val game = document.document.toObject<HomePageModel>()
                         val score = game.score
-                        var flag = true
-                        for (x in scores) {
-                            if (x.first == score) {
-                                x.second.plus(1)
-                                flag = false
-                            }
-                        }
-                        if (flag) {
-                            scores.add(Pair(score!!, 1))
+
+                        if (scores.containsKey(score)) {
+                            val prevScore = scores[score]
+                            scores.set(score!!, prevScore!! + 1)
+                        } else {
+                            scores.put(score!!, 1)
                         }
                     }
-                    for (x in scores) {
-                        series.appendData(DataPoint(x.first.toDouble(), x.second.toDouble()), true, 1000)
+                    for (x in scores.entries) {
+                        series.appendData(DataPoint(x.key.toDouble(), x.value.toDouble()), true, 1000)
                     }
+
                     binding.graph.addSeries(series)
+
+                    binding.graph.viewport.isScalable = true
+
+                    binding.graph.viewport.setMinY(0.0)
                 }
 
             }
