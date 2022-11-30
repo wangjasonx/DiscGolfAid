@@ -14,6 +14,16 @@
             android:id="@+id/action_newGameFragment_to_settingParFragment"
             app:destination="@id/settingParFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/previousGameFragment"
+        android:name="com.example.discgolfpracticeaid.fragments.PreviousGameFragment"
+        android:label="fragment_previous_game"
+        tools:layout="@layout/fragment_previous_game" >
+        <action
+            android:id="@+id/action_previousGameFragment_to_setParFragment"
+            app:destination="@id/settingParFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingParFragment"
         android:name="com.example.discgolfpracticeaid.fragments.SettingParFragment"

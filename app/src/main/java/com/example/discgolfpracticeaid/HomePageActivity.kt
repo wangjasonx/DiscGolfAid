@@ -38,7 +38,7 @@ class HomePageActivity : AppCompatActivity() {
         }
 
         binding.prevGame.setOnClickListener {
-            val PreviousGamesActivity = Intent(this, PreviousGamesActivity::class.java)
+            val PreviousGamesActivity = Intent(this, PreviousGameActivity::class.java)
             startActivity(PreviousGamesActivity)
         }
     }
