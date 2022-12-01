@@ -25,6 +25,8 @@
         <activity
             android:name=".LogInActivity"
             android:exported="false" />
+        <activity android:name=".PreviousGameActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
