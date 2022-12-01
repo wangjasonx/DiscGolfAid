@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.discgolfpracticeaid.NewGameActivity
 import com.example.discgolfpracticeaid.R
@@ -38,7 +39,7 @@ class PlayGameFragment : Fragment() {
             sharedViewModel.setScore(calculateScore())
 
             newGameActivity.addData()
-            newGameActivity.goToHomePage()
+            goToGameSummary()
         }
 
         // Inflate the layout for this fragment
@@ -75,4 +76,9 @@ class PlayGameFragment : Fragment() {
 
         return score
     }
+
+    fun goToGameSummary() {
+        findNavController().navigate(R.id.action_playGameFragment_to_gameSummaryFragment)
+    }
+
 }
