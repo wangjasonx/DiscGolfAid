@@ -22,6 +22,7 @@ import com.google.firebase.firestore.ktx.toObject
 import android.app.DatePickerDialog
 import androidx.navigation.fragment.findNavController
 import androidx.fragment.app.activityViewModels
+import com.example.discgolfpracticeaid.PreviousGameActivity
 import com.example.discgolfpracticeaid.databinding.FragmentGameSummaryBinding
 import java.util.*
 
@@ -58,8 +59,13 @@ class GameSummaryFragment: Fragment() {
 
 
         binding.goHomeButton.setOnClickListener() {
-            val newGameActivity = activity as NewGameActivity
-            newGameActivity.goToHomePage()
+            val currentActivity = activity
+            if (currentActivity is NewGameActivity) {
+                currentActivity.goToHomePage()
+            } else if (currentActivity is PreviousGameActivity) {
+                currentActivity.goToHomePage()
+            }
+
         }
 
         return binding.root

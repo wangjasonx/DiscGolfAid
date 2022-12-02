@@ -25,6 +25,10 @@ class PreviousGameAdapter(private val gamesList: List<PrevGameModel>,
         val game = gamesList[position]
         holder.courseName.text = game.course_name
         holder.date.text = game.date
+        holder.setHoles(game.holes!!)
+        holder.setCourseName(game.course_name!!)
+        holder.setDate(game.date!!)
+        holder.setScore(game.score!!)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder{
@@ -44,12 +48,32 @@ class PreviousGameAdapter(private val gamesList: List<PrevGameModel>,
                                                       holes: Int?) -> Unit): RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val courseName : TextView = itemView.findViewById(R.id.tvCourseName)
         val date : TextView = itemView.findViewById(R.id.tvDate)
+        private var holes: Int? = -1
+        private var score: Int? = -1
+        private var course_name: String? = null
+        private var input_date: String?  = null
+
+        fun setHoles(hole_number: Int) {
+            holes = hole_number
+        }
+
+        fun setScore(score_number: Int) {
+            score = score_number
+        }
+
+        fun setCourseName(input_course: String) {
+            course_name = input_course
+        }
+
+        fun setDate(a_date: String) {
+            input_date = a_date
+        }
 
         init {
             itemView.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
-            onItemClicked("test", "test", 3, 3)
+            onItemClicked(course_name, input_date, score, holes)
         }
 
     }

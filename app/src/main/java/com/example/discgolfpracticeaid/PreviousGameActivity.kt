@@ -30,4 +30,10 @@ class PreviousGameActivity: AppCompatActivity() {
         val i = Intent(applicationContext, MainActivity::class.java)
         startActivity(i)
     }
+
+    fun goToHomePage() {
+        val HomePageActivity = Intent(this, HomePageActivity::class.java)
+        startActivity(HomePageActivity)
+        finish()
+    }
 }
