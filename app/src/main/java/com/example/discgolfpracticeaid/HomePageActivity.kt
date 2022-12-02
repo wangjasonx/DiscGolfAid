@@ -71,7 +71,7 @@ class HomePageActivity : AppCompatActivity() {
                 qs?.let {
                     series = BarGraphSeries<DataPoint>()
 
-                    val scores: HashMap<Int, Int> = HashMap()
+                    var scores: HashMap<Int, Int> = HashMap()
                     for (document in qs.documentChanges) {
                         val game = document.document.toObject<HomePageModel>()
                         val score = game.score
@@ -83,7 +83,10 @@ class HomePageActivity : AppCompatActivity() {
                             scores.put(score!!, 1)
                         }
                     }
-                    for (x in scores.entries) {
+
+                    val sortedMap = scores.toSortedMap()
+
+                    for (x in sortedMap.entries) {
                         series.appendData(DataPoint(x.key.toDouble(), x.value.toDouble()), true, 1000)
                     }
 
