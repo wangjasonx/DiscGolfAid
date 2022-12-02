@@ -49,6 +49,11 @@ class HomePageActivity : AppCompatActivity() {
             goToLogin()
         }
 
+        binding.prevGame.setOnClickListener {
+            val PreviousGamesActivity = Intent(this, PreviousGameActivity::class.java)
+            startActivity(PreviousGamesActivity)
+        }
+
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()
 
@@ -87,6 +92,7 @@ class HomePageActivity : AppCompatActivity() {
                     binding.graph.viewport.isScalable = true
 
                     binding.graph.viewport.setMinY(0.0)
+                    binding.graph.viewport.isScrollable = false
                 }
 
             }

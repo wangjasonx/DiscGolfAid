@@ -37,5 +37,14 @@
         android:id="@+id/playGameFragment"
         android:name="com.example.discgolfpracticeaid.fragments.PlayGameFragment"
         android:label="fragment_play_game"
-        tools:layout="@layout/fragment_play_game" />
+        tools:layout="@layout/fragment_play_game" >
+        <action
+            android:id="@+id/action_playGameFragment_to_gameSummaryFragment"
+            app:destination="@id/gameSummaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameSummaryFragment"
+        android:name="com.example.discgolfpracticeaid.fragments.GameSummaryFragment"
+        android:label="fragment_game_summary"
+        tools:layout="@layout/fragment_game_summary" />
 </navigation>

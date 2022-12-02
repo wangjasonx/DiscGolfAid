@@ -46,13 +46,15 @@ class GameSummaryFragment: Fragment() {
         binding = FragmentGameSummaryBinding.inflate(inflater, container, false)
 
 
-        val name = sharedViewModel.courseName
-        val date = sharedViewModel.date
-        val score = sharedViewModel.score
+        val name = sharedViewModel.courseName.value
+        val date = sharedViewModel.date.value
+        val score = sharedViewModel.score.value
+        val holes = sharedViewModel.numberOfHoles.value
 
         binding.courseName.text = name.toString()
         binding.date.text = date.toString()
         binding.score.text = score.toString()
+        binding.holes.text = holes.toString()
 
 
         binding.goHomeButton.setOnClickListener() {
