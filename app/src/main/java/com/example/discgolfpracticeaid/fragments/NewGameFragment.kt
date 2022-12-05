@@ -34,7 +34,15 @@ class NewGameFragment : Fragment() {
             val datePickerDialog = DatePickerDialog(
                 inflater.context,
                 { view, year, monthOfYear, dayOfMonth ->
-                    val dat = ((monthOfYear + 1).toString() + "-" + dayOfMonth.toString() + "-" + year)
+                    var monthYear = (monthOfYear + 1).toString()
+                    var dayMonth = dayOfMonth.toString()
+                    if (monthYear.length < 2) {
+                        monthYear = "0" + monthYear
+                    }
+                    if (dayMonth.length < 2) {
+                        dayMonth = "0" + dayMonth
+                    }
+                    val dat = (monthYear + "-" + dayMonth + "-" + year)
                     binding.Date.setText(dat)
                 },
                 year,
